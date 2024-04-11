@@ -1,74 +1,73 @@
-/* Colour variables */
+ /* Colour variables */
 :root {
-    --violet: violet;
-    --indigo: indigo;
-    --blue: blue;
-    --green: green;
-    --yellow: yellow;
-    --orange: orange;
     --red: red;
-  }
-  
-  .circle {
+    --orange: orange;
+    --yellow: yellow;
+    --green: green;
+    --blue: blue;
+    --indigo: indigo;
+    --violet: violet;
+}
+
+ /* Basic circle structure */
+ .circle {
     height: 100px;
     width: 100px;
+    background-color: black;
     border: none;
     border-radius: 50px;
     position: absolute;
     left: 10vw;
     top: 30vh;
-    animation: moveCircle 10s linear infinite, changeColor 10s linear infinite;
+    animation: changeColour 10s linear infinite, moveCircle 10s linear infinite;
   }
-  
-  /* Animation to move the circle */
-  @keyframes moveCircle {
-    0% {
-      transform: translate(0, 0);
-    }
-    50% {
-      transform: translate(40vw, 0);
-    }
-    100% {
-      transform: translate(0, 0);
-    }
-  }
-  
-  /* Animation to change color */
-  @keyframes changeColor {
-    0%,
-    100% {
-      background-color: var(--violet);
+
+/* Animation to change color */
+@keyframes changeColour {
+    0%, 100% {
+        background-color: var(--red);
     }
     12.5% {
-      background-color: var(--indigo);
-    }
+        background-color: var(--orange);
+    } 
     25% {
-      background-color: var(--blue);
+        background-color: var(--yellow);
     }
     37.5% {
-      background-color: var(--green);
+        background-color: var(--green);
     }
     50% {
-      background-color: var(--yellow);
+        background-color: var(--blue);
+      }
+      62.5% {
+        background-color: var(--indigo);
+      }
+      75% {
+        background-color: var(--violet);
+      }
+      87.5% {
+        background-color: var(--red);
+      }
+}
+
+ /* Animation to move the circle */ 
+ @keyframes moveCircle {
+    0% {
+        transform: translate(0, 0);
     }
-    62.5% {
-      background-color: var(--orange);
+    50% {
+        transform: translate(40vw, 0);
     }
-    75% {
-      background-color: var(--red);
+    100% {
+        transform: translate(0, 0);
     }
-    87.5% {
-      background-color: var(--violet);
-    }
-  }
-  
-  /* On hover, pause the animations and transform the size */
-  .circle:hover {
+ }
+
+ /* On hover, pause the animations and transform the size */
+.circle:hover {
     animation-play-state: paused;
     width: 200px;
     height: 200px;
-    border-radius: 100px;
-    /* Transition to change the size on hover */
-    transition: width 2s, height 2s;
-  }
-  
+    border-radius: 0;
+    transition: width 2s, height 2s, border-radius 2s;
+}
